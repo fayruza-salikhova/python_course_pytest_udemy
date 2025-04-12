@@ -84,3 +84,30 @@ pytest -m "smoke or regression" -v  # To run tests with either smoke or regressi
 pytest -m "smoke and regression" -v
 pytest -m "smoke" tests/test_smoke.py  # Run tests with the 'smoke' marker from a specific file
 pytest -m "smoke" tests/              # Run tests with the 'smoke' marker from the 'tests' directory
+
+11. Fixing Pythonpath and imports
+-------------------------------------------------
+pwd  # to find path
+C:\Projects\python_projects\python_course_pytest_udemy
+add an answer to pathes of interpreter on your idea
+and setup PYTHONPATH
+$env:PYTHONPATH="C:\Projects\python_projects\python_course_pytest_udemy"
+
+12. Django
+-------------------------------------------------
+From path: \python_course_pytest_udemy\
+pipenv install django
+
+From path: \python_course_pytest_udemy\api
+django-admin startproject mysite
+
+From path where manage.py: \python_course_pytest_udemy\api\coronavstech>
+python manage.py runserver
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py startapp companies
+python manage.py makemigrations companies
+
+13. Beautify
+-------------------------------------------------
+black .
