@@ -1,0 +1,86 @@
+# ✅ Checklist for creating a Python project with Pipenv and .venv inside the project
+
+1. ❗ Make sure the project path DOES NOT contain Cyrillic characters
+
+Example:
+C:\Projects\my_project
+
+2. 📁 Create the project folder and navigate to it
+-------------------------------------------------
+mkdir C:\Projects\my_project
+cd C:\Projects\my_project
+
+3. 📌 Set an environment variable so that .venv is created inside the project
+(for PowerShell — run this every time in a new terminal session)
+
+$env:PIPENV_VENV_IN_PROJECT = "true"
+
+4. 🐍 Install dependencies using Pipenv (or just create the environment)
+-------------------------------------------------
+pipenv install
+or
+pipenv install pytest
+
+5. ✅ Install pipenv INSIDE the virtual environment (to avoid Cyrillic path issues)
+
+.\.venv\Scripts\python.exe -m pip install pipenv
+
+6. 🧪 (optional) Activate the virtual environment manually
+-------------------------------------------------
+.\.venv\Scripts\activate
+python --version
+pip list
+
+7. 🧠 Configure the interpreter in IntelliJ IDEA (or PyCharm)
+-------------------------------------------------
+To use Pipenv properly, configure the interpreter as a **Pipenv Environment**:
+
+1. Go to:
+   File → Settings → Project: <your_project> → Python Interpreter
+
+2. Click the ⚙️ gear icon → Add...
+
+3. In the left panel, choose **Pipenv Environment**
+
+4. Set the following options:
+
+   ✅ Base interpreter:
+   C:\Projects\python_projects\python_course_pytest_udemy\.venv\Scripts\python.exe
+
+   ✅ Pipenv executable:
+   C:\Projects\python_projects\python_course_pytest_udemy\.venv\Scripts\pipenv
+
+5. Click OK and wait for indexing to complete.
+
+✔ After that, IntelliJ/PyCharm will use your local Pipenv environment correctly, without touching any global installations or user folders with Cyrillic names.
+
+8. 🚀 Useful Pipenv commands
+-------------------------------------------------
+pipenv install <package>        # Install a package
+pipenv uninstall <package>      # Uninstall a package
+pipenv install --dev pytest     # Install as a development dependency
+pipenv shell                    # Open the virtual environment shell
+pipenv graph                    # Show dependency tree
+pipenv --venv                   # Show virtualenv path
+pipenv --rm                     # Remove the virtualenv
+pipenv lock                     # Update Pipfile.lock
+
+9. 🧪 Run tests with pytest
+-------------------------------------------------
+To run tests after installing pytest:
+
+Activate the virtual environment first:
+pipenv shell  # Activate the virtual environment
+pytest . -v        # Run tests in verbose mode. To get detailed information about the test run, you can add the -v (verbose) flag.
+pytest tests/      # Run tests from a specific directory (e.g. 'tests')
+pytest <test_file> # Run tests from a specific file
+
+10. 🔖 Run tests with a specific marker
+-------------------------------------------------
+If you use markers in your tests, you can run tests that match a certain marker:
+pytest -m "smoke" -v   # Run tests with the 'smoke' marker
+pytest -k "smoke" -v    # Run tests whose name or markers contain the string 'smoke'
+pytest -m "smoke or regression" -v  # To run tests with either smoke or regression markers
+pytest -m "smoke and regression" -v
+pytest -m "smoke" tests/test_smoke.py  # Run tests with the 'smoke' marker from a specific file
+pytest -m "smoke" tests/              # Run tests with the 'smoke' marker from the 'tests' directory
