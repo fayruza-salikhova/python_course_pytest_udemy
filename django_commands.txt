@@ -1,0 +1,12 @@
+From \python_course_pytest_udemy\
+pipenv install django
+
+From \python_course_pytest_udemy\api
+django-admin startproject mysite
+
+From \python_course_pytest_udemy\api\coronavstech>
+python manage.py runserver
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py startapp companies
+python manage.py makemigrations companies
