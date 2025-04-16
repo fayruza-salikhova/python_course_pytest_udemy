@@ -71,19 +71,21 @@ To run tests after installing pytest:
 
 Activate the virtual environment first:
 pipenv shell  # Activate the virtual environment
-pytest . -v        # Run tests in verbose mode. To get detailed information about the test run, you can add the -v (verbose) flag.
-pytest tests/      # Run tests from a specific directory (e.g. 'tests')
-pytest <test_file> # Run tests from a specific file
+pytest . -v                 # Run tests in verbose mode. To get detailed information about the test run, you can add the -v (verbose) flag.
+pytest -v -s                # -s to show "print" result
+pytest -v -s --durations=0  # durations of tests
+pytest tests/               # Run tests from a specific directory (e.g. 'tests')
+pytest <test_file>          # Run tests from a specific file
 
 10. 🔖 Run tests with a specific marker
 -------------------------------------------------
 If you use markers in your tests, you can run tests that match a certain marker:
-pytest -m "smoke" -v   # Run tests with the 'smoke' marker
-pytest -k "smoke" -v    # Run tests whose name or markers contain the string 'smoke'
-pytest -m "smoke or regression" -v  # To run tests with either smoke or regression markers
+pytest -m "smoke" -v                    # Run tests with the 'smoke' marker
+pytest -k "smoke" -v                    # Run tests whose name or markers contain the string 'smoke'
+pytest -m "smoke or regression" -v      # To run tests with either smoke or regression markers
 pytest -m "smoke and regression" -v
-pytest -m "smoke" tests/test_smoke.py  # Run tests with the 'smoke' marker from a specific file
-pytest -m "smoke" tests/              # Run tests with the 'smoke' marker from the 'tests' directory
+pytest -m "smoke" tests/test_smoke.py   # Run tests with the 'smoke' marker from a specific file
+pytest -m "smoke" tests/                # Run tests with the 'smoke' marker from the 'tests' directory
 
 11. Fixing Pythonpath and imports
 -------------------------------------------------
@@ -92,6 +94,8 @@ C:\Projects\python_projects\python_course_pytest_udemy
 add an answer to pathes of interpreter on your idea
 and setup PYTHONPATH
 $env:PYTHONPATH="C:\Projects\python_projects\python_course_pytest_udemy"
+$env:DJANGO_SETTINGS_MODULE="coronavstech.settings"
+$env:PYTHONPATH="$env:PYTHONPATH;$(Get-Location)\api"
 
 12. Django
 -------------------------------------------------

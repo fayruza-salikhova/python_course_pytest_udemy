@@ -5,10 +5,11 @@ name = "pypi"
 
 [packages]
 pytest = "*"
-django = "*"
 now = "*"
 djangorestframework = "*"
 black = "*"
+pytest-django = "*"
+django = "*"
 
 [dev-packages]
 
