@@ -1,6 +1,8 @@
 import json
 from companies.models import Company
-from companies.tests.api_tests.setup_tests import BasicCompanyApiTestCase
+from companies.tests.api_tests_django_style_old.setup_tests import (
+    BasicCompanyApiTestCase,
+)
 
 
 class TestGetCompanies(BasicCompanyApiTestCase):
