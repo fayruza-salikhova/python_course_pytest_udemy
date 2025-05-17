@@ -68,7 +68,7 @@ pipenv lock                     # Update Pipfile.lock
 9. 🧪 Run tests with pytest
 -------------------------------------------------
 To run tests after installing pytest:
-
+Go to python_course_pytest_udemy\api\coronavstech>
 Activate the virtual environment first:
 pipenv shell  # Activate the virtual environment
 pytest . -v                 # Run tests in verbose mode. To get detailed information about the test run, you can add the -v (verbose) flag.
@@ -115,3 +115,20 @@ python manage.py makemigrations companies
 13. Beautify
 -------------------------------------------------
 black .
+
+14. Daily scripts
+-------------------------------------------------
+pipenv shell
+
+run server
+C:\Projects\python_projects\python_course_pytest_udemy\api\coronavstech> python manage.py runserver
+
+run tests
+C:\Projects\python_projects\python_course_pytest_udemy\api\coronavstech> pytest . -v
+
+install packages
+pipenv shell
+C:\Projects\python_projects\python_course_pytest_udemy> pipenv install allure-pytest --dev
+
+pytest --alluredir=allure-results
+allure serve allure-results
