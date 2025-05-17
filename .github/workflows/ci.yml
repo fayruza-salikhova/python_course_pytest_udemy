@@ -10,6 +10,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      DJANGO_SETTINGS_MODULE: coronavstech.settings
+      PYTHONPATH: api/coronavstech
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -29,4 +33,4 @@ jobs:
         run: pytest api/coronavstech -s -v --durations=0
 
       - name: Run Fibonacci tests
-        run: pytest fibonacci/ -s -v --durations=0 --cov=.
+        run: pytest fibonacci/ -s -v --durations=0
